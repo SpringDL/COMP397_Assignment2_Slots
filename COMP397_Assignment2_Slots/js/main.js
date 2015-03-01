@@ -1,4 +1,11 @@
 ﻿/// <reference path="jquery.js" />
+/*
+    Filename: main.css
+    Author: Danny Luk 300709186
+    Last Modified by: Danny Luk
+    Last Modified Date: 5 Mar. 2015
+    Description: This file contains the code for the functionality and presentation of the slot machine.
+*/
 
 //#region Load Images
 var slotLayout = new Image(); slotLayout.src = "img/slotLayout.fw.png";
@@ -76,14 +83,8 @@ function InitializeGame() {
     money = 500;
     bet = 10;
 
-    trash = 0;
-    healFruit = 0;
-    solarNut = 0;
-    seeAllNut = 0;
-    banana = 0;
-    gariPop = 0;
-    meat = 0;
-    django = 0;
+    //Set Initial Slot Rolls
+    ResetSlotResults();
 
     //Draw slots
     paint.drawImage(slotLayout, 0, 0);
@@ -176,6 +177,7 @@ function ResetSlotResults() {
 
 //Display Results
 function DisplaySpinResults(slot, result) {
+    //Var
     var drawX, drawY;
 
     //#region Determine: Where to Draw Results
@@ -342,9 +344,9 @@ function PayWinnings() {
     }
     //#endregion
 
+    //Refresh Stats to Display Winnings
     UpdateStats();
 }
-
 
 
 //Click to Spin
@@ -358,6 +360,7 @@ $("#BtnSpin").click(function () {
         SpinReels();
     }
 });
+
 
 //Click to Increase Bet Amount
 $("#BtnBetUp").click(function () {
@@ -403,9 +406,4 @@ function checkRange(value, lowerBounds, upperBounds) {
         return !value;
     }
 }
-
-
-
-
-
 
